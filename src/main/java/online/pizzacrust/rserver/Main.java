@@ -7,6 +7,7 @@ import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 
 import online.pizzacrust.rserver.protocol.GetAllServerHandler;
 import online.pizzacrust.rserver.protocol.RegisterServerHandler;
+import online.pizzacrust.rserver.protocol.ShutdownServerHandler;
 
 public class Main {
 
@@ -20,8 +21,11 @@ public class Main {
         ContextHandler regServerHandler = new ContextHandler();
         regServerHandler.setContextPath("/registerserver");
         regServerHandler.setHandler(new RegisterServerHandler());
+        ContextHandler shutdownHandler = new ContextHandler();
+        shutdownHandler.setContextPath("/delserver");
+        shutdownHandler.setHandler(new ShutdownServerHandler());
         ContextHandlerCollection contexts = new ContextHandlerCollection();
-        contexts.setHandlers(new Handler[] { getAll, regServerHandler });
+        contexts.setHandlers(new Handler[] { getAll, regServerHandler, shutdownHandler });
         server.setHandler(contexts);
         server.start();
         server.join();
