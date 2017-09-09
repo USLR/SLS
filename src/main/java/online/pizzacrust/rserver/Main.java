@@ -13,7 +13,7 @@ import online.pizzacrust.rserver.protocol.ShutdownServerHandler;
 
 import static online.pizzacrust.rserver.protocol.RegisterServerHandler.CODE;
 
-public class Main { //mm
+public class Main { //mmm
 
     public static void main(String... args) throws Exception {
         Server server = new Server(Integer.parseInt(args[0]));
