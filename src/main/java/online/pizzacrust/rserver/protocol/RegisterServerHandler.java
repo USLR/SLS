@@ -27,11 +27,6 @@ public class RegisterServerHandler extends AbstractHandler {
     @Override
     public void handle(String s, Request implRequest, HttpServletRequest apiRequest,
                        HttpServletResponse apiResponse) throws IOException, ServletException {
-        if (!apiRequest.getMethod().toLowerCase().equalsIgnoreCase("post")) {
-            apiResponse.setStatus(SC_METHOD_NOT_ALLOWED);
-            implRequest.setHandled(true);
-            return;
-        }
         Collection<String> key = apiRequest.getParameterMap().keySet();
         if (!key.contains("code") || !key.contains("instance_id") || !key.contains("regpc") ||
                 !key.contains("place_id")) {
