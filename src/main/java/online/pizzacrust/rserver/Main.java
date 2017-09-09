@@ -13,6 +13,7 @@ public class Main {
     public static void main(String... args) throws Exception {
         Server server = new Server(Integer.parseInt(args[0]));
         System.out.println("port " + args[0]);
+        System.out.println("code " + ServerRegistrationsResponse.getRegistry());
         ContextHandler getAll = new ContextHandler();
         getAll.setContextPath("/getallservers");
         getAll.setHandler(new GetAllServerHandler());
