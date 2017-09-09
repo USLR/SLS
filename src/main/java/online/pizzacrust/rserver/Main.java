@@ -9,12 +9,14 @@ import online.pizzacrust.rserver.protocol.GetAllServerHandler;
 import online.pizzacrust.rserver.protocol.RegisterServerHandler;
 import online.pizzacrust.rserver.protocol.ShutdownServerHandler;
 
+import static online.pizzacrust.rserver.protocol.RegisterServerHandler.CODE;
+
 public class Main {
 
     public static void main(String... args) throws Exception {
         Server server = new Server(Integer.parseInt(args[0]));
         System.out.println("port " + args[0]);
-        System.out.println("code " + ServerRegistrationsResponse.getRegistry());
+        System.out.println("code " + CODE);
         ContextHandler getAll = new ContextHandler();
         getAll.setContextPath("/getallservers");
         getAll.setHandler(new GetAllServerHandler());
