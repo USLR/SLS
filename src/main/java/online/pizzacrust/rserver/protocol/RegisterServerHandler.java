@@ -24,10 +24,6 @@ public class RegisterServerHandler extends AbstractHandler {
 
     public static String CODE;
 
-    public RegisterServerHandler() {
-        CODE = UUID.randomUUID().toString().replace("-", "");
-    }
-
     @Override
     public void handle(String s, Request implRequest, HttpServletRequest apiRequest,
                        HttpServletResponse apiResponse) throws IOException, ServletException {

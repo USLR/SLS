@@ -5,6 +5,8 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 
+import java.util.UUID;
+
 import online.pizzacrust.rserver.protocol.GetAllServerHandler;
 import online.pizzacrust.rserver.protocol.RegisterServerHandler;
 import online.pizzacrust.rserver.protocol.ShutdownServerHandler;
@@ -16,6 +18,7 @@ public class Main {
     public static void main(String... args) throws Exception {
         Server server = new Server(Integer.parseInt(args[0]));
         System.out.println("port " + args[0]);
+        CODE = UUID.randomUUID().toString().replace("-", "");
         System.out.println("code " + CODE);
         ContextHandler getAll = new ContextHandler();
         getAll.setContextPath("/getallservers");
