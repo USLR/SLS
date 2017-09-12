@@ -29,8 +29,10 @@ public class Main { //mmm
         ContextHandler shutdownHandler = new ContextHandler();
         shutdownHandler.setContextPath("/delserver");
         shutdownHandler.setHandler(new ShutdownServerHandler());
+        ContextHandler getNameHandler = new ContextHandler();
+        getNameHandler.setContextPath("/getname");
         ContextHandlerCollection contexts = new ContextHandlerCollection();
-        contexts.setHandlers(new Handler[] { getAll, regServerHandler, shutdownHandler });
+        contexts.setHandlers(new Handler[] { getAll, regServerHandler, shutdownHandler, getNameHandler });
         server.setHandler(contexts);
         server.start();
         server.join();
