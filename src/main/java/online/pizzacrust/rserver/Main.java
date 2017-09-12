@@ -7,6 +7,7 @@ import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 
 import java.util.UUID;
 
+import online.pizzacrust.rserver.protocol.FilterGetAllServerHandler;
 import online.pizzacrust.rserver.protocol.GetAllServerHandler;
 import online.pizzacrust.rserver.protocol.GetGameNameHandler;
 import online.pizzacrust.rserver.protocol.RegisterServerHandler;
@@ -33,8 +34,12 @@ public class Main { //mmm
         ContextHandler getNameHandler = new ContextHandler();
         getNameHandler.setContextPath("/getname");
         getNameHandler.setHandler(new GetGameNameHandler());
+        ContextHandler filterGetAllServer = new ContextHandler();
+        filterGetAllServer.setContextPath("/filteredgetallservers");
+        filterGetAllServer.setHandler(new FilterGetAllServerHandler());
         ContextHandlerCollection contexts = new ContextHandlerCollection();
-        contexts.setHandlers(new Handler[] { getAll, regServerHandler, shutdownHandler, getNameHandler });
+        contexts.setHandlers(new Handler[] { getAll, regServerHandler, shutdownHandler,
+                getNameHandler, filterGetAllServer });
         server.setHandler(contexts);
         server.start();
         server.join();
