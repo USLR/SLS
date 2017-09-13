@@ -19,7 +19,7 @@ import online.pizzacrust.rserver.ServerRegistrationsResponse;
 import static javax.servlet.http.HttpServletResponse.SC_BAD_REQUEST;
 import static javax.servlet.http.HttpServletResponse.SC_OK;
 
-public class FilterGetAllServerHandler extends AbstractHandler {
+public class FilterGetAllServerHandler extends AbstractHandler { // r
     @Override
     public void handle(String s, Request implRequest, HttpServletRequest apiRequest,
                        HttpServletResponse
