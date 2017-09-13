@@ -6,7 +6,7 @@ ROBLOX. This feature was very important to me, and thus I have created this serv
 several
 more components:
 
-- **SLC** (Server List Client), auto registration to SLS. Currently in private beta.
+- **SLC** (Server List Client), auto registration to SLS. Check repositories of USLR to see releases/build tutorials.
 - **SLH** (Server List Hub), automatic and seamless hub to automatically use SLS for universal-able
 games. Currently in private beta.
 - **SLB** (Server List Browser), unofficial automatic integration into the ROBLOX website with a
