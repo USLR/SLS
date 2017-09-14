@@ -11,6 +11,7 @@ import online.pizzacrust.rserver.protocol.FilterGetAllServerHandler;
 import online.pizzacrust.rserver.protocol.GetAllServerHandler;
 import online.pizzacrust.rserver.protocol.GetGameNameHandler;
 import online.pizzacrust.rserver.protocol.RegisterServerHandler;
+import online.pizzacrust.rserver.protocol.SetPlayerCountHandler;
 import online.pizzacrust.rserver.protocol.ShutdownServerHandler;
 
 import static online.pizzacrust.rserver.protocol.RegisterServerHandler.CODE;
@@ -37,9 +38,12 @@ public class Main { //mmm
         ContextHandler filterGetAllServer = new ContextHandler();
         filterGetAllServer.setContextPath("/filteredgetallservers");
         filterGetAllServer.setHandler(new FilterGetAllServerHandler());
+        ContextHandler setPlayerCountHandler = new ContextHandler();
+        setPlayerCountHandler.setContextPath("/setplayercount");
+        setPlayerCountHandler.setHandler(new SetPlayerCountHandler());
         ContextHandlerCollection contexts = new ContextHandlerCollection();
         contexts.setHandlers(new Handler[] { getAll, regServerHandler, shutdownHandler,
-                getNameHandler, filterGetAllServer });
+                getNameHandler, filterGetAllServer, setPlayerCountHandler });
         server.setHandler(contexts);
         server.start();
         server.join();
